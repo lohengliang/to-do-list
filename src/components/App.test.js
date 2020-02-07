@@ -8,7 +8,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 const store = createStore(rootReducer)
 
-test('renders learn react link', () => {
+test('renders button that filters the active to-do entries', () => {
   const { getByText } = render(
     <Provider store={store}>
       <App />
