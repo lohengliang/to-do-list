@@ -7,6 +7,8 @@ var logger = require('morgan');
 import index from './routes/index';
 var usersRouter = require('./routes/users');
 
+const todoitem = require('./sequelize')
+
 var app = express();
 
 // view engine setup
