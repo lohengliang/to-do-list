@@ -1,45 +1,43 @@
-import TodoItem from '../db/models';
+import { TodoItem } from '../db/models';
 
-export default {
-  findAll(req, res) {
-    return TodoItem
-      .findAll()
-      .then(todoItem => res.json(todoItem))
+
+module.exports = {
+  async findAll(req, res) {
+    var result = await TodoItem.findAll();
+    res.json(result);
   },
   /* Assuming HTTP request body has the keys 'content' and 'completed' */
-  create(req, res) {
-    return TodoItem
-      .create({
-        content: req.body.content,
-        completed: req.body.completed,
-      })
-      .then(todoItem => res.json(todoItem))
+  async create(req, res) {
+    var result = await TodoItem.create({
+      content: req.body.content,
+      completed: req.body.completed,
+    });
+    res.json(result);
   },
   /* Assuming HTTP request body has the keys 'content', 'completed' and 'todoItemId' */
-  update(req, res) {
-    return TodoItem
-      .update({
+  async update(req, res) {
+    var result = await TodoItem.update({
         content: req.body.content,
         completed: req.body.completed,
       }, {
         where: {
           id: req.body.todoItemId
         }
-      })
-      .then(todoItem => res.json(todoItem))
+    });
+    res.json(result);
   },
   /* Assuming HTTP request body has the key 'todoItemId' */
-  destroy(req, res) {
-    return TodoItem
-      .destroy({
-        where: {
-          id: req.body.todoItemId
-        }
-      }, {
-        where: {
-          id: req.body.todoItemId
-        }
-      })
-      .then(todoItem => res.json(todoItem))
+  async destroy(req, res) {
+    var result = await TodoItem
+    .destroy({
+      where: {
+        id: req.body.todoItemId
+      }
+    }, {
+      where: {
+        id: req.body.todoItemId
+      }
+    });
+    res.json(result);
   },
 };
