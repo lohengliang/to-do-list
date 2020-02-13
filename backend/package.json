@@ -1,12 +1,15 @@
 {
-  "name": "express-trial",
+  "name": "todo-app-backend",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "build": "npm run clean && npm run build-babel",
     "build-babel": "babel -d ./build ./src -s --copy-files",
     "clean": "rm -rf build",
-    "start": "npm run build && node ./build/bin/www",
+    "start": "NODE_ENV=PRODUCTION npm run build && node ./build/bin/www",
     "start:dev": "nodemon --exec babel-node ./src/bin/www"
   },
   "dependencies": {
