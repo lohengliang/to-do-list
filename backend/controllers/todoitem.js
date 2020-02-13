@@ -1,6 +1,6 @@
-const TodoItem = require('../db/models').TodoItem;
+import TodoItem from '../db/models';
 
-module.exports = {
+export default {
   findAll(req, res) {
     return TodoItem
       .findAll()

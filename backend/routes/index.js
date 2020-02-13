@@ -1,7 +1,7 @@
-var express = require('express');
+import express from 'express';
 var router = express.Router();
 
-const todoItemController = require('../controllers').todoItem;
+import todoItemController from '../controllers';
 
 router.get('/', function (req, res, next) {
   res.send('Hello World!');
@@ -23,4 +23,4 @@ router.delete('/delete-todo', function (req, res, next) {
   todoItemController.destroy(req, res);
 });
 
-module.exports = router;
+export default router;
