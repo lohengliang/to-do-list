@@ -4,16 +4,14 @@
     "password": "postgres",
     "database": "to_do_app_database",
     "host": "localhost",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
     "database": "to_do_app_database",
     "host": "localhost",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
     "use_env_variable": "DATABASE_URL"
