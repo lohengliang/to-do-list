@@ -30,14 +30,14 @@ export const update = async (req, res) => {
 /* Assuming HTTP request body has the key 'todoItemId' */
 export const destroy = async (req, res) => {
   const result = await TodoItem
-      .destroy({
-        where: {
-          id: req.body.todoItemId
-        }
-      }, {
-        where: {
-          id: req.body.todoItemId
-        }
-      });
-    res.json(result);
+    .destroy({
+      where: {
+        id: req.body.todoItemId
+      }
+    }, {
+      where: {
+        id: req.body.todoItemId
+      }
+    });
+  res.json(result);
 };
