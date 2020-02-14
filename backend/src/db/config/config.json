@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "to-do-app-database",
+    "database": "to_do_app_database",
     "host": "localhost",
     "dialect": "postgres",
     "operatorsAliases": false
@@ -10,7 +10,7 @@
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "to-do-app-database",
+    "database": "to_do_app_database",
     "host": "localhost",
     "dialect": "postgres",
     "operatorsAliases": false

@@ -4,8 +4,5 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.STRING,
     completed: DataTypes.BOOLEAN
   }, {});
-  TodoItem.associate = function(models) {
-    // associations can be defined here
-  };
   return TodoItem;
 };
