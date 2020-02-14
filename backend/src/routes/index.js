@@ -1,7 +1,7 @@
 import express from 'express';
 var router = express.Router();
 
-import { findAll, create, update, destroy } from '../controllers/todoItem.js';
+import { findAll, create, update, destroy } from '../controllers/todoItem';
 
 router.get('/', function (req, res, next) {
   res.send('Hello World!');
