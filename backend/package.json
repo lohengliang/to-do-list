@@ -8,8 +8,8 @@
   "scripts": {
     "build": "npm run clean && npm run build-babel",
     "build-babel": "babel -d ./build ./src -s --copy-files",
-    "clean": "del /S /Q build",
-    "start": "npm run build && node ./build/bin/www",
+    "clean": "rm -rf build",
+    "start": "NODE_ENV=PRODUCTION npm run build && node ./build/bin/www",
     "start:dev": "nodemon --exec babel-node ./src/bin/www"
   },
   "dependencies": {
