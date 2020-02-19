@@ -1,7 +1,8 @@
 import { TodoItem } from '../db/models';
 
 export const findAll = async (req, res) => {
-  const result = await TodoItem.findAll();
+  const result = await TodoItem.findAll({order: [
+    ['id', 'ASC']]});
   res.json(result);
 };
 
