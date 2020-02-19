@@ -5,6 +5,72 @@ export const addTodo = content => ({
     content
 })
 
+export const requestPostTodos = () => ({
+    type: 'REQUEST_POST_TODOS'
+})
+
+export const receivePostTodos = () => ({
+    type: 'RECEIVE_POST_TODOS'
+})
+
+export const postTodo = content => dispatch => {
+    dispatch(requestPostTodos());
+    return fetch("http://localhost:4000/create-todo",
+        {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                content,
+                completed: false
+            })
+        })
+        .then((response) => {
+            console.log(response);
+            return response.json()
+        })
+        .then(todos => {
+            console.log(todos);
+            dispatch(receivePostTodos());
+            return dispatch(fetchTodos())
+        })
+}
+
+export const requestUpdateTodos = () => ({
+    type: 'REQUEST_UPDATE_TODOS'
+})
+
+export const receiveUpdateTodos = () => ({
+    type: 'RECEIVE_UPDATE_TODOS'
+})
+
+export const updateTodo = (id, completed) => dispatch => {
+    requestUpdateTodos();
+    return fetch("http://localhost:4000/update-todo",
+        {
+            method: "put",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                todoItemId: id,
+                completed: !completed
+            })
+        })
+        .then((response) => {
+            console.log(response);
+            return response.json()
+        })
+        .then(todos => {
+            console.log(todos);
+            receiveUpdateTodos();
+            return dispatch(fetchTodos())
+        })
+}
+
 export const setVisibilityFilter = filter => ({
     type: 'SET_VISIBILITY_FILTER',
     filter
