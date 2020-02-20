@@ -15,7 +15,7 @@ export const receivePostTodos = () => ({
 
 export const postTodo = content => dispatch => {
     dispatch(requestPostTodos());
-    return fetch("http://localhost:4000/create-todo",
+    return fetch("https://lit-ridge-37859.herokuapp.com/create-todo",
         {
             method: "post",
             headers: {
@@ -48,7 +48,7 @@ export const receiveUpdateTodos = () => ({
 
 export const updateTodo = (id, completed) => dispatch => {
     requestUpdateTodos();
-    return fetch("http://localhost:4000/update-todo",
+    return fetch("https://lit-ridge-37859.herokuapp.com/update-todo",
         {
             method: "put",
             headers: {
@@ -87,7 +87,7 @@ export const receiveTodos = todos => ({
 
 export const fetchTodos = () => dispatch => {
     dispatch(requestTodos());
-    return fetch('http://localhost:4000/retrieve-todo')
+    return fetch('https://lit-ridge-37859.herokuapp.com/retrieve-todo')
         .then(response => {
             console.log(response);
             return response.json()
