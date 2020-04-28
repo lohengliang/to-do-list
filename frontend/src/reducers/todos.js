@@ -5,18 +5,6 @@ const initialState = {
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          {
-            id: action.id,
-            value: action.content,
-            completed: false
-          }
-        ]
-      }
     case 'REQUEST_TODOS':
       return {
         ...state,
